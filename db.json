@@ -1,38 +1,24 @@
 {
   "tasks": [
     {
-      "id": "c54b",
-      "title": "ssssss",
+      "id": "39e0",
+      "title": "Assignment Submission",
       "priority": "High",
-      "dueDate": "2024-12-19",
+      "dueDate": "2024-12-15",
+      "status": true
+    },
+    {
+      "id": "7391",
+      "title": "Interview Call ",
+      "priority": "Medium",
+      "dueDate": "2024-12-16",
       "status": false
     },
     {
-      "title": "fun",
-      "priority": "Medium",
-      "dueDate": "2024-12-27",
-      "status": true,
-      "id": "081b"
-    },
-    {
-      "id": "9c02",
-      "title": "eeeeeeeee",
+      "id": "fc13",
+      "title": "Party",
       "priority": "Low",
-      "dueDate": "2024-12-14",
-      "status": true
-    },
-    {
-      "id": "247f",
-      "title": "jjjjjjj",
-      "priority": "Medium",
-      "dueDate": "2024-12-13",
-      "status": true
-    },
-    {
-      "id": "b0fa",
-      "title": "ffgdgfd",
-      "priority": "High",
-      "dueDate": "2024-12-18",
+      "dueDate": "2024-12-20",
       "status": false
     }
   ]

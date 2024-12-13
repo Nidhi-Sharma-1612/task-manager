@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { Table, Button } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import type { ColumnsType } from "antd/es/table";
 
 interface Task {
   id: number;
@@ -16,15 +16,15 @@ const TaskTable: React.FC<{
   onEdit: (task: Task) => void;
   onDelete: (id: number) => void;
 }> = ({ tasks, onEdit, onDelete }) => {
-  const columns = [
+  const columns: ColumnsType<Task> = [
     {
       title: "Task Title",
       dataIndex: "title",
       key: "title",
       width: "40%",
-      sorter: (a: Task, b: Task) => a.title.localeCompare(b.title),
+      sorter: (a, b) => a.title.localeCompare(b.title),
       filterSearch: true,
-      onFilter: (value: string, record: Task) => record.title.includes(value),
+      onFilter: (value, record) => record.title.includes(value as string),
       filters: Array.from(new Set(tasks.map((task) => task.title))).map(
         (title) => ({ text: title, value: title })
       ),
@@ -35,13 +35,13 @@ const TaskTable: React.FC<{
       dataIndex: "priority",
       key: "priority",
       width: 100,
-      sorter: (a: Task, b: Task) => a.priority.localeCompare(b.priority),
+      sorter: (a, b) => a.priority.localeCompare(b.priority),
       filters: [
         { text: "High", value: "High" },
         { text: "Medium", value: "Medium" },
         { text: "Low", value: "Low" },
       ],
-      onFilter: (value: string, record: Task) => record.priority === value,
+      onFilter: (value, record) => record.priority === value,
       render: (priority: string) => {
         let color = "text-green-500";
         if (priority === "High") color = "text-red-500";
@@ -55,12 +55,10 @@ const TaskTable: React.FC<{
       dataIndex: "dueDate",
       key: "dueDate",
       width: 120,
-      sorter: (a: Task, b: Task) =>
+      sorter: (a, b) =>
         new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime(),
-      defaultSortOrder: "ascend", // Show due date in ascending order by default
-      responsive: ["sm", "md", "lg"],
-
-      render: (dueDate: string) => {
+      defaultSortOrder: "ascend",
+      render: (dueDate) => {
         const formattedDate = new Intl.DateTimeFormat("en-GB", {
           day: "2-digit",
           month: "long",
@@ -68,25 +66,26 @@ const TaskTable: React.FC<{
         }).format(new Date(dueDate));
         return <span>{formattedDate}</span>;
       },
+      responsive: ["sm", "md", "lg"],
     },
     {
       title: "Status",
       dataIndex: "status",
       key: "status",
       width: 100,
-      render: (status: boolean) => (status ? "Completed" : "Not Completed"),
+      render: (status) => (status ? "Completed" : "Not Completed"),
       filters: [
         { text: "Completed", value: true },
         { text: "Not Completed", value: false },
       ],
-      onFilter: (value: boolean, record: Task) => record.status === value,
+      onFilter: (value, record) => record.status === value,
       responsive: ["xs", "sm", "md", "lg"],
     },
     {
       title: "Actions",
       key: "actions",
       width: 100,
-      render: (_: any, record: Task) => (
+      render: (_, record) => (
         <div className="flex space-x-2">
           <Button
             type="link"
