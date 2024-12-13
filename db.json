@@ -1,25 +1,3 @@
 {
-  "tasks": [
-    {
-      "id": "39e0",
-      "title": "Assignment Submission",
-      "priority": "High",
-      "dueDate": "2024-12-15",
-      "status": true
-    },
-    {
-      "id": "7391",
-      "title": "Interview Call ",
-      "priority": "Medium",
-      "dueDate": "2024-12-16",
-      "status": false
-    },
-    {
-      "id": "fc13",
-      "title": "Party",
-      "priority": "Low",
-      "dueDate": "2024-12-20",
-      "status": false
-    }
-  ]
+  "tasks": []
 }

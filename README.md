@@ -4,7 +4,7 @@ This README provides instructions to set up and run the Task Management App loca
 
 ## Deployed App
 
-The app is deployed and accessible at: [Deployed App Link](#)
+The app is deployed and accessible at: https://task-manager-ntnd.vercel.app/
 
 ## Steps to Set Up and Run Locally
 
